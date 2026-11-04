@@ -3,9 +3,13 @@ var currentLetter = null
 // we get the textarea
 const log = document.getElementById("log");
 log.addEventListener("keydown", logKey);
-// 
+// Insert at the textarea's selection, which is preserved while choosing a number.
+function insertCharacter(character){
+    log.setRangeText(character, log.selectionStart, log.selectionEnd, "end")
+    log.focus()
+}
 function writeCharacter(e){
-    log.value+=e.target.value
+    insertCharacter(e.currentTarget.value)
 }
 function populate(key){
     btndiv = document.getElementById("buttonslist")
@@ -23,11 +27,14 @@ function populate(key){
     }
 }
 var  deleteLastChr = true
+var characterStart = null
 function logKey(e) {
+    if (!Object.prototype.hasOwnProperty.call(MAPPING, e.key)) return
     if (e.repeat && e.key != "Backspace") {
-    // we remove the last letter
+    // Remove the held letter where it was typed, not at the end of the text.
     if (deleteLastChr){
-        log.value = log.value.slice(0, -1);
+        if (characterStart === null) return
+        log.setRangeText("", characterStart, characterStart + e.key.length, "end")
         deleteLastChr = false
     }
     // we prevent for inserting the normal letter
@@ -40,18 +47,16 @@ function logKey(e) {
     document.getElementById("selectGly").focus()
     document.getElementById("selectGly").select()
     }else{
-    deleteLastChr = true
+        deleteLastChr = true
+        characterStart = log.selectionStart
     }
 }
 selectField = document.getElementById("selectGly")
 selectField.addEventListener("keyup", ({key}) => {
     if (key === "Enter") {
         value = MAPPING[currentLetter][selectField.value]
-        log.value+=value
+        insertCharacter(value)
         selectField.value = ""
-        lgEl = document.getElementById("log")
-        lgEl.focus()
-        lgEl.selectionStart = lgEl.value.length;
     }else{
         btndiv = document.getElementById("buttonslist")
         for (let index = 0; index < btndiv.childNodes.length; index++) {
