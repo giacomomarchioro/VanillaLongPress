@@ -1,0 +1,12 @@
+button {
+    font-family: 'Cardo', serif;
+    font-size: 38px;
+    }
+textarea {
+    font-family: 'Cardo', serif;
+    font-size: 38px; 
+}
+sup {
+    font-size: 15px;
+    color: rgb(186, 50, 50);
+}
