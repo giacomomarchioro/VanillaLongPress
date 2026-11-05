@@ -17,4 +17,5 @@ You can disable ApplePressAndHold:
 defaults write com.google.Chrome ApplePressAndHoldEnabled -bool false
 defaults read com.google.Chrome ApplePressAndHoldEnabled
 ```
-
+# Demos
+A demo of the application can be accessed [here](https://giacomomarchioro.github.io/VanillaLongPress/)
