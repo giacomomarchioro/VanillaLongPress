@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <style>
+        @font-face {
+            font-family: 'Cardo';
+            src: url('Cardo-Regular.eot');
+            src: url('Cardo-Regular.eot?#iefix') format('embedded-opentype'),
+                url('Cardo-Regular.woff2') format('woff2'),
+                url('Cardo-Regular.woff') format('woff'),
+                url('Cardo-Regular.ttf') format('truetype'),
+                url('Cardo-Regular.svg#Cardo-Regular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+
+<link rel="stylesheet" href="../src/VanillaLongPress.css" />
+<script src="../mapping/MUFI/substitutions.js"></script>
+<script src="../src/AutoSub.js"></script>
+<script src="../mapping/MUFI/simple_mapping.js"></script>
+
+</head>
+
+<body>
+<textarea id="log" name="story" rows="5" cols="120">
+</textarea>
+<input inputmode="numeric" oninput="this.value = this.value.replace(/\D+/g, '')" id="selectGly" />
+<div id="buttonslist"></div>
+</body>
+<script src="../src/VanillaLongPress.js"></script>
+</html>
