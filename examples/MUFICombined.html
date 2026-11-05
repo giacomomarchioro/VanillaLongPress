@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MUFI — LongPress, AutoSub and Commands</title>
+    <link rel="stylesheet" href="../src/VanillaLongPress.css">
+    <style>
+        @font-face {
+            font-family: 'Cardo';
+            src: url('Cardo-Regular.woff2') format('woff2');
+            font-display: swap;
+        }
+        #log, #buttonslist { font-family: 'Cardo', serif; }
+        #log { width: 100%; box-sizing: border-box; }
+    </style>
+    <script src="../mapping/MUFI/simple_mapping.js"></script>
+    <script src="../mapping/MUFI/substitutions.js"></script>
+    <script src="../mapping/MUFI/commands.js"></script>
+</head>
+<body>
+    <h1>MUFI combined demo</h1>
+    <p>Type <code>s</code> for ſ or <code>e</code> for ꝫ. Type <code>&lt;per&lt;</code> for ⸪:
+        automatic substitutions pause inside commands. Hold a supported key to choose an alternative.</p>
+    <label for="log">Text</label>
+    <textarea id="log" rows="8"></textarea>
+    <label for="selectGly">Alternative number</label>
+    <input inputmode="numeric" oninput="this.value = this.value.replace(/\D+/g, '')" id="selectGly">
+    <div id="buttonslist"></div>
+    <p><a href="MUFILongPress.html">LongPress-only demo</a> · <a href="../index.html">All demos</a></p>
+    <script src="../src/VanillaLongPress.js"></script>
+    <script src="../src/AutoSub.js"></script>
+    <script src="../src/Commands.js"></script>
+</body>
+</html>
